@@ -4,7 +4,6 @@
     <p>{{ counter }}</p>
   </div>
 </div>
-
 <div class="row text-center">
   <div class="col">
     <button class="btn btn-primary mx-1" (click)="increment()">
@@ -13,5 +12,10 @@
     <button class="btn btn-secondary mx-1" (click)="decrement()">
       Decrementar
     </button>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <app-son [counter]="counter" (counterChanges)="counter = $event"></app-son>
   </div>
 </div>

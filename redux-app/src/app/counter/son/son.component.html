@@ -1,1 +1,14 @@
-<p>son works!</p>
+<div class="row text-center mt-5">
+  <div class="col">
+    <h1>Contador en hijo</h1>
+    <p>{{ counter }}</p>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <button class="btn btn-primary mx-1" (click)="multiply()">
+      Multiplicar
+    </button>
+    <button class="btn btn-secondary mx-1" (click)="divide()">Dividir</button>
+  </div>
+</div>
