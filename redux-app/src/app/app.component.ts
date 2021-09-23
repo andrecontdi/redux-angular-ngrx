@@ -11,4 +11,12 @@ export class AppComponent {
   constructor() {
     this.counter = 10;
   }
+
+  public increment() {
+    this.counter++;
+  }
+
+  public decrement() {
+    this.counter--;
+  }
 }
