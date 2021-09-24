@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SonComponent } from './counter/son/son.component';
+import { counterReducer } from './counter/counter.reducer';
 import { GrandsonComponent } from './counter/grandson/grandson.component';
+import { SonComponent } from './counter/son/son.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SonComponent,
-    GrandsonComponent
-  ],
+  declarations: [AppComponent, SonComponent, GrandsonComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ counter: counterReducer }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

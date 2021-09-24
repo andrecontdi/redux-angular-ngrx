@@ -1,22 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as action from './counter/counter.action';
+
+interface AppState {
+  counter: number;
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public counter: number;
 
-  constructor() {
-    this.counter = 10;
+  constructor(private store: Store<AppState>) {
+    this.counter = 0;
+  }
+
+  ngOnInit(): void {
+    this.store.subscribe((state: AppState) => {
+      this.counter = state.counter;
+    });
   }
 
   public increment() {
-    this.counter++;
+    this.store.dispatch(action.increment());
   }
 
   public decrement() {
-    this.counter--;
+    this.store.dispatch(action.decrement());
   }
 }
