@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as action from './counter/counter.action';
+import * as action from './counter/counter.actions';
+import { initialState } from './counter/counter.reducer';
 
 interface AppState {
   counter: number;
@@ -12,16 +13,19 @@ interface AppState {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public counter: number;
+  public counter = initialState;
 
-  constructor(private store: Store<AppState>) {
-    this.counter = 0;
-  }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store
-      .select('counter')
-      .subscribe((counter: number) => (this.counter = counter));
+    this.store.select('counter').subscribe((counter: number) => {
+      console.log(
+        '🚀 ~ file: app.component.ts ~ line 23 ~ AppComponent ~ this.store.select ~ counter',
+        counter
+      );
+
+      this.counter = counter;
+    });
   }
 
   public increment() {
