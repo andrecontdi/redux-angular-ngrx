@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.subscribe((state: AppState) => {
-      this.counter = state.counter;
-    });
+    this.store
+      .select('counter')
+      .subscribe((counter: number) => (this.counter = counter));
   }
 
   public increment() {
