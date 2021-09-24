@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-grandson',
   templateUrl: './grandson.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class GrandsonComponent implements OnInit {
+  @Input() counter: number = 0;
+  @Output() counterChanges = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public reset(): void {
+    this.counter = 0;
+    this.counterChanges.emit(this.counter);
   }
-
 }
