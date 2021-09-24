@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+
+import { AppState } from './app.reducers';
 import * as action from './counter/counter.actions';
 import { initialState } from './counter/counter.reducer';
-
-interface AppState {
-  counter: number;
-}
 
 @Component({
   selector: 'app-root',
@@ -18,14 +16,9 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store.select('counter').subscribe((counter: number) => {
-      console.log(
-        '🚀 ~ file: app.component.ts ~ line 23 ~ AppComponent ~ this.store.select ~ counter',
-        counter
-      );
-
-      this.counter = counter;
-    });
+    this.store
+      .select('counter')
+      .subscribe((counter: number) => (this.counter = counter));
   }
 
   public increment() {
