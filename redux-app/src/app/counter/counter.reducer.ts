@@ -10,7 +10,7 @@ const _counterReducer = createReducer(
   on(action.decrement, (state) => state - 1),
   on(action.multiply, (state, { multiplyFactor }) => state * multiplyFactor),
   on(action.divide, (state, { divideFactor }) => state / divideFactor),
-  on(action.reset, (state) => 0)
+  on(action.reset, (state) => initialState)
 );
 
 export function counterReducer(
