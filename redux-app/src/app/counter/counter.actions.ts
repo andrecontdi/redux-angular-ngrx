@@ -6,4 +6,8 @@ export const multiply = createAction(
   '[Counter] Multiply',
   props<{ multiplyFactor: number }>()
 );
+export const divide = createAction(
+  '[Counter] Divide',
+  props<{ divideFactor: number }>()
+);
 export const reset = createAction('[Counter] Reset');

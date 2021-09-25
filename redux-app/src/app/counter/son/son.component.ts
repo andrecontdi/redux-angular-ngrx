@@ -24,6 +24,6 @@ export class SonComponent implements OnInit {
   }
 
   public divide() {
-    // this.counter = this.counter / 2;
+    this.store.dispatch(action.divide({ divideFactor: 4 }));
   }
 }

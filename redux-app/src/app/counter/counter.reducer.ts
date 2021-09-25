@@ -9,6 +9,7 @@ const _counterReducer = createReducer(
   on(action.increment, (state) => state + 1),
   on(action.decrement, (state) => state - 1),
   on(action.multiply, (state, { multiplyFactor }) => state * multiplyFactor),
+  on(action.divide, (state, { divideFactor }) => state / divideFactor),
   on(action.reset, (state) => 0)
 );
 
