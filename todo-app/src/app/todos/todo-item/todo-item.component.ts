@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/models/app-state.model';
 import { Todo } from 'src/app/shared/models/todo.model';
-import { completed, edit } from '../todo.actions';
+import { completed, edit, remove } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -51,5 +51,9 @@ export class TodoItemComponent implements OnInit {
     this.store.dispatch(
       edit({ id: this.todo.id, newText: this.textInput.value })
     );
+  }
+
+  public remove() {
+    this.store.dispatch(remove({ id: this.todo.id }));
   }
 }

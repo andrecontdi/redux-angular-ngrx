@@ -2,7 +2,7 @@
   <div class="view">
     <input class="toggle" type="checkbox" [formControl]="checkCompleted" />
     <label (dblclick)="edit()">{{ todo.text }}</label>
-    <button class="destroy"></button>
+    <button class="destroy" (click)="remove()"></button>
   </div>
   <input
     class="edit"

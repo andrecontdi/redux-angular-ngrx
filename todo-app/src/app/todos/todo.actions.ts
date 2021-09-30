@@ -9,3 +9,4 @@ export const edit = createAction(
   '[Todo] Edit',
   props<{ id: number; newText: string }>()
 );
+export const remove = createAction('[Todo] Remove', props<{ id: number }>());
