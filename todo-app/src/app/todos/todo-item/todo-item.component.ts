@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/models/app-state.model';
 import { Todo } from 'src/app/shared/models/todo.model';
-import { completed } from '../todo.actions';
+import { completed, edit } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -37,10 +37,19 @@ export class TodoItemComponent implements OnInit {
 
   public edit(): void {
     this.editing = !this.editing;
+    this.textInput.setValue(this.todo.text);
     setTimeout(() => this.editingInput?.nativeElement.select(), 1);
   }
 
   public update(): void {
     this.editing = !this.editing;
+
+    if (this.textInput.invalid || this.textInput.value === this.todo.text) {
+      return;
+    }
+
+    this.store.dispatch(
+      edit({ id: this.todo.id, newText: this.textInput.value })
+    );
   }
 }
