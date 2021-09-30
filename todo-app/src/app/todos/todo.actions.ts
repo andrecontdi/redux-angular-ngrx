@@ -5,8 +5,8 @@ export const completed = createAction(
   '[Todo] Completed',
   props<{ id: number }>()
 );
-export const edit = createAction(
-  '[Todo] Edit',
+export const update = createAction(
+  '[Todo] Update',
   props<{ id: number; newText: string }>()
 );
 export const remove = createAction('[Todo] Remove', props<{ id: number }>());
