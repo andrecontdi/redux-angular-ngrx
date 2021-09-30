@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/models/app-state.model';
 import { Todo } from 'src/app/shared/models/todo.model';
 
-import { completed, remove, update } from '../todo.actions';
+import { remove, toggle, update } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -19,7 +19,7 @@ export class TodoItemComponent implements OnInit {
   };
   @ViewChild('editingInput') editingInput: ElementRef | undefined;
 
-  public checkCompleted: FormControl = new FormControl();
+  public toggle: FormControl = new FormControl();
   public textInput: FormControl = new FormControl();
 
   public editing: boolean = false;
@@ -27,12 +27,12 @@ export class TodoItemComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.checkCompleted = new FormControl(this.todo.completed);
+    this.toggle = new FormControl(this.todo.completed);
     this.textInput = new FormControl(this.todo.text, Validators.required);
 
-    this.checkCompleted.valueChanges.subscribe(() => {
-      console.log(this.checkCompleted.value);
-      this.store.dispatch(completed({ id: this.todo.id }));
+    this.toggle.valueChanges.subscribe(() => {
+      console.log(this.toggle.value);
+      this.store.dispatch(toggle({ id: this.todo.id }));
     });
   }
 
