@@ -7,3 +7,4 @@ export const update = createAction(
   props<{ id: number; newText: string }>()
 );
 export const remove = createAction('[Todo] Remove', props<{ id: number }>());
+export const toggleAll = createAction('[Todo] Toggle all');
