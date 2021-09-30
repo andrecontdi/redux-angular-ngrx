@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    ReactiveFormsModule,
     SharedModule,
     StoreModule.forRoot({ todos: todosReducer }),
     StoreDevtoolsModule.instrument({
