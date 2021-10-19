@@ -1,7 +1,14 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { Todo } from 'src/app/shared/models/todo.model';
 
-import { Todo } from '../shared/models/todo.model';
-import { add, remove, toggle, toggleAll, update } from './todo.actions';
+import {
+  add,
+  clearCompleted,
+  remove,
+  toggle,
+  toggleAll,
+  update,
+} from './todo.actions';
 
 export const initialState: Todo[] = [
   new Todo('Save the world!'),
@@ -44,6 +51,9 @@ const _todosReducer = createReducer(
         completed: !todo.completed,
       };
     });
+  }),
+  on(clearCompleted, (state) => {
+    return state.filter((todo) => !todo.completed);
   })
 );
 

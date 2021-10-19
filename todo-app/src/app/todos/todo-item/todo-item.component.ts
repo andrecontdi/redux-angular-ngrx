@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/models/app-state.model';
 import { Todo } from 'src/app/shared/models/todo.model';
 
-import { remove, toggle, update } from '../todo.actions';
+import { remove, toggle, update } from '../../store/todos/todo.actions';
 
 @Component({
   selector: 'app-todo-item',

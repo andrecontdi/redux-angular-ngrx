@@ -8,3 +8,4 @@ export const update = createAction(
 );
 export const remove = createAction('[Todo] Remove', props<{ id: number }>());
 export const toggleAll = createAction('[Todo] Toggle all');
+export const clearCompleted = createAction('[Todo] Clear completed');

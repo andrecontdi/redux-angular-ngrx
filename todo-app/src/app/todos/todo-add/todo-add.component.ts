@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/models/app-state.model';
-import { add } from '../todo.actions';
+
+import { add } from '../../store/todos/todo.actions';
 
 @Component({
   selector: 'app-todo-add',
