@@ -1,5 +1,5 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { hideLoader, showLoader } from "./ui.actions";
+import { Action, createReducer, on } from '@ngrx/store';
+import { hideLoader, showLoader } from './ui.actions';
 
 export interface UiState {
   showLoader: boolean;
@@ -11,10 +11,10 @@ export const initialState: UiState = {
 
 const _uiReducer = createReducer(
   initialState,
-  on(showLoader, state => {...state, showLoader: true}),
-  on(hideLoader, state => {...state, showLoader: false})
+  on(showLoader, (state) => ({ ...state, showLoader: true })),
+  on(hideLoader, (state) => ({ ...state, showLoader: false }))
 );
 
-export function uiReducer(state: UiState, action: Action): UiState {
+export function uiReducer(state: UiState | undefined, action: Action): UiState {
   return _uiReducer(state, action);
 }
