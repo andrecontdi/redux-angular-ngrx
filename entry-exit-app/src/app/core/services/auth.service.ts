@@ -7,12 +7,18 @@ import { map } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
 import { AppState } from 'src/store/app/app.reducers';
 import { setUser, unsetUser } from 'src/store/auth/auth.actions';
+import { unsetItems } from 'src/store/entry-exit/entry-exit.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private authStateValueChangesSubscription: Subscription = new Subscription();
+  private _user: User | null = null;
+
+  get user() {
+    return { ...this._user };
+  }
 
   constructor(
     private angularFireAuth: AngularFireAuth,
@@ -30,14 +36,16 @@ export class AuthService {
           .valueChanges()
           .subscribe((logedInUser) => {
             const user = User.fromFirebase(logedInUser);
+            this._user = user;
             this.store.dispatch(setUser({ user }));
           });
       } else {
         if (this.authStateValueChangesSubscription) {
           this.authStateValueChangesSubscription.unsubscribe();
         }
-
+        this._user = null;
         this.store.dispatch(unsetUser());
+        this.store.dispatch(unsetItems());
       }
     });
   }
