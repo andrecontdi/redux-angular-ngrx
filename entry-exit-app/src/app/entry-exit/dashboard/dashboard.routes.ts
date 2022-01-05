@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { DetailComponent } from '../entry-exit/detail/detail.component';
-import { EntryExitComponent } from '../entry-exit/entry-exit.component';
-import { StatisticsComponent } from '../entry-exit/statistics/statistics.component';
+import { DetailComponent } from '../detail/detail.component';
+import { EntryExitComponent } from '../entry-exit.component';
+import { StatisticsComponent } from '../statistics/statistics.component';
 
 export const dashboardRoutes: Routes = [
   { path: '', component: StatisticsComponent },

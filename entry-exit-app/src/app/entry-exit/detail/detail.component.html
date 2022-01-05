@@ -30,7 +30,11 @@
                 {{ item.type }}
               </td>
               <td>
-                <button type="button" class="btn btn-sm btn-danger">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-danger"
+                  (click)="deleteItem(item)"
+                >
                   <i class="fa fa-trash"></i>
                   Borrar
                 </button>

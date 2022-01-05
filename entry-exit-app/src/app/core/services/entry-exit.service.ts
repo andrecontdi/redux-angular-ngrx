@@ -39,4 +39,10 @@ export class EntryExitService {
         })
       );
   }
+
+  public deleteEntry(uidItem?: string): Promise<void> {
+    return this.angularFirestore
+      .doc(`${this.authService.user.uid}/entry-exit/items/${uidItem}`)
+      .delete();
+  }
 }

@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AuthGuard } from './core/guards/auth.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { dashboardRoutes } from './dashboard/dashboard.routes';
+import { DashboardComponent } from './entry-exit/dashboard/dashboard.component';
+import { dashboardRoutes } from './entry-exit/dashboard/dashboard.routes';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

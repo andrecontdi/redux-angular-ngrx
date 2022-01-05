@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { AppState } from 'src/store/app/app.reducers';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,9 +10,19 @@ import Swal from 'sweetalert2';
   templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  public username: string | undefined = '';
 
-  ngOnInit(): void {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private store: Store<AppState>
+  ) {}
+
+  ngOnInit(): void {
+    this.store
+      .select('auth')
+      .subscribe(({ user }) => (this.username = user?.username));
+  }
 
   public logOut(): void {
     this.showLoder();

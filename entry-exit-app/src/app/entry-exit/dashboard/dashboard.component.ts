@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AppState } from 'src/store/app/app.reducers';
 import { addItem } from 'src/store/entry-exit/entry-exit.actions';
-import { EntryExitService } from '../core/services/entry-exit.service';
+import { EntryExitService } from '../../core/services/entry-exit.service';
 
 @Component({
   selector: 'app-dashboard',
