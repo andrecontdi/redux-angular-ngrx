@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { EntryExitService } from 'src/app/core/services/entry-exit.service';
 import { EntryExit } from 'src/app/shared/models/entry-exit.model';
 import { AppState } from 'src/store/app/app.reducers';
+import { AppStateWithEntryExit } from 'src/store/entry-exit/entry-exit.reducers';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +14,7 @@ export class DetailComponent implements OnInit {
   public items: EntryExit[] | null = null;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<AppStateWithEntryExit>,
     private entryExitService: EntryExitService
   ) {}
 

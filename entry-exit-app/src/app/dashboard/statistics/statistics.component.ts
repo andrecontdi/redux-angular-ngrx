@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { EntryExit } from 'src/app/shared/models/entry-exit.model';
-import { AppState } from 'src/store/app/app.reducers';
+import { AppStateWithEntryExit } from 'src/store/entry-exit/entry-exit.reducers';
 
 @Component({
   selector: 'app-statistics',
@@ -13,7 +13,7 @@ export class StatisticsComponent implements OnInit {
   public totalEntrys = 0;
   public totalExits = 0;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppStateWithEntryExit>) {}
 
   ngOnInit(): void {
     this.store.select('entryExit').subscribe(({ items }) => {

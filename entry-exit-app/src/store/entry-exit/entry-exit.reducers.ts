@@ -1,9 +1,14 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on, State } from '@ngrx/store';
 import { EntryExit } from 'src/app/shared/models/entry-exit.model';
+import { AppState } from '../app/app.reducers';
 import { addItem, deleteItem, unsetItems } from './entry-exit.actions';
 
 export interface EntryExitState {
   items: EntryExit[] | null;
+}
+
+export interface AppStateWithEntryExit extends AppState {
+  entryExit: EntryExitState;
 }
 
 export const initialState: EntryExitState = {
