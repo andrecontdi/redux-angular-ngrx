@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/store/app/app.reducers';
-import { addItem } from 'src/store/entry-exit/entry-exit.actions';
 import { hideLoader, showLoader } from 'src/store/ui/ui.actions';
 import Swal from 'sweetalert2';
-import { EntryExitService } from '../core/services/entry-exit.service';
-import { EntryExit } from '../shared/models/entry-exit.model';
+
+import { EntryExitService } from '../../core/services/entry-exit.service';
+import { EntryExit } from '../../shared/models/entry-exit.model';
 
 @Component({
   selector: 'app-entry-exit',
